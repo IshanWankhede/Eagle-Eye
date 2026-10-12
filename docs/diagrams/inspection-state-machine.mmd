@@ -1,0 +1,12 @@
+stateDiagram-v2
+    [*] --> CREATED
+    CREATED --> FILES_UPLOADED: files accepted
+    FILES_UPLOADED --> QUEUED: process requested
+    QUEUED --> PROCESSING: worker starts
+    PROCESSING --> AWAITING_REVIEW: REVIEW items exist
+    PROCESSING --> COMPLETED: no REVIEW items
+    PROCESSING --> FAILED: error or timeout
+    FAILED --> QUEUED: retry
+    AWAITING_REVIEW --> COMPLETED: all reviewed
+    COMPLETED --> QUEUED: reinspect
+    COMPLETED --> [*]

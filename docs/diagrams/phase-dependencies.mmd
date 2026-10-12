@@ -1,0 +1,15 @@
+flowchart LR
+    P1[1 Repo setup] --> P2[2 Backend foundation]
+    P1 --> P3[3 Frontend shell]
+    P1 --> P5[5 Dataset prep]
+    P2 --> P4[4 Upload and parsing]
+    P3 --> P4
+    P5 --> P6[6 Colab training]
+    P6 --> P7[7 Model integration]
+    P4 --> P8[8 Matching and QC rules]
+    P7 --> P8
+    P8 --> P9[9 Results and review]
+    P9 --> P10[10 Reports]
+    P9 --> P11[11 Integration and hardening]
+    P10 --> P11
+    P11 --> P12[12 Demo readiness]

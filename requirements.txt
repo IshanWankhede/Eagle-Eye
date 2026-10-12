@@ -1,0 +1,8 @@
+# Runtime core. Mirrors [project.dependencies] in pyproject.toml.
+# Heavy ML and document libraries are optional extras: see pyproject.toml ([ml], [docs]).
+fastapi>=0.110
+uvicorn[standard]>=0.27
+pydantic>=2.6
+pydantic-settings>=2.2
+python-multipart>=0.0.9
+sqlalchemy>=2.0

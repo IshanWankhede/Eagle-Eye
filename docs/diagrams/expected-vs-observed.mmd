@@ -1,0 +1,15 @@
+flowchart TB
+    EXP[Expected items from CSV/XLSX/PDF] --> NORM1[Normalize class names and tags]
+    OBS[Detections + OCR text] --> NORM2[Normalize class names and text]
+    NORM1 --> MATCH[Match by class, then tag text, then zone]
+    NORM2 --> MATCH
+    MATCH --> M1[Matched pairs]
+    MATCH --> M2[Unmatched expected]
+    MATCH --> M3[Unmatched observed]
+    M1 --> R[Rule engine]
+    M2 --> R
+    M3 --> R
+    R --> OUT{Evidence sufficient?}
+    OUT -->|yes, consistent| PASS[PASS]
+    OUT -->|yes, inconsistent| FAIL[FAIL]
+    OUT -->|no or unsupported| REVIEW[REVIEW]

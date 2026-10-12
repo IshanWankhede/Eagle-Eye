@@ -1,0 +1,13 @@
+flowchart LR
+    INS([Inspector])
+    SYS[Eagle Eye]
+    DOCS[/Engineering docs: PDF, CSV, XLSX/]
+    IMGS[/Cabinet photos/]
+    COLAB[Google Colab training]
+    REP[/Inspection report/]
+    INS -->|creates inspection, reviews results| SYS
+    DOCS -->|uploaded by inspector| SYS
+    IMGS -->|uploaded by inspector| SYS
+    COLAB -.->|best.pt + manifest, copied manually| SYS
+    SYS -->|results and evidence| INS
+    SYS -->|generates| REP

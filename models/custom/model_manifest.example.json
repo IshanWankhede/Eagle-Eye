@@ -1,0 +1,13 @@
+{
+  "_comment": "ILLUSTRATIVE TEMPLATE. Every value must be replaced with real, measured data after training.",
+  "model_family": "ultralytics-yolo",
+  "base_checkpoint": "yolo11n.pt",
+  "checkpoint_path": "models/custom/best.pt",
+  "checkpoint_sha256": "TO_BE_FILLED",
+  "class_names": {"0": "TO_BE_FILLED"},
+  "dataset": {"name": "TO_BE_FILLED", "source_url": "TO_BE_FILLED", "version": "TO_BE_FILLED", "license": "TO_BE_FILLED"},
+  "training": {"epochs": null, "imgsz": null, "batch": null, "seed": null, "date": null},
+  "software": {"ultralytics": null, "torch": null, "python": null},
+  "evaluation": {"split": "test", "precision": null, "recall": null, "map50": null, "map50_95": null, "status": "PENDING"},
+  "known_limitations": ["TO_BE_FILLED"]
+}

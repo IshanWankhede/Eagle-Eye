@@ -1,0 +1,47 @@
+# Local coding-agent prompts
+/PROMPT.md
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+*.egg-info/
+
+# Node
+node_modules/
+frontend/dist/
+frontend/.vite/
+
+# Environment and secrets
+.env
+.env.*
+!.env.example
+
+# Local data, models, runtime artifacts (keep folder markers only)
+data/raw/*
+data/interim/*
+data/processed/*
+data/annotations/*
+!data/**/.gitkeep
+models/pretrained/*
+models/custom/*
+!models/**/.gitkeep
+!models/custom/model_manifest.example.json
+*.pt
+*.onnx
+*.engine
+artifacts/*
+!artifacts/README.md
+storage/
+*.sqlite3
+*.db
+
+# Editor / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

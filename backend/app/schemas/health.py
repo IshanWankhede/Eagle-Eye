@@ -1,0 +1,8 @@
+from pydantic import BaseModel
+
+
+class HealthResponse(BaseModel):
+    status: str
+    version: str
+    model_loaded: bool
+    model_file_found: bool

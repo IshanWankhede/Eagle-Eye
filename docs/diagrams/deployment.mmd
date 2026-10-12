@@ -1,0 +1,14 @@
+flowchart LR
+    subgraph Laptop[Local or demo machine]
+        FE[Vite dev server or static build]
+        BE[Uvicorn + FastAPI]
+        DBF[(SQLite file)]
+        UP[(Upload folder)]
+        W[(models/custom/best.pt)]
+    end
+    BR[Browser] --> FE
+    FE -->|/api proxy| BE
+    BE --> DBF
+    BE --> UP
+    BE --> W
+    COLAB[Google Colab] -.->|manual download then copy| W

@@ -1,0 +1,32 @@
+flowchart TB
+    subgraph Client
+        UI[React + TypeScript UI]
+    end
+    subgraph Backend[FastAPI backend]
+        API[api: routes]
+        SCH[schemas: Pydantic]
+        SVC[services: orchestration]
+        PAR[parsers: PDF, CSV, XLSX]
+        VIS[vision: preprocess + detector]
+        OCR[ocr: OCR engine]
+        MAT[matching: expected vs observed]
+        CHK[checks: QC rules]
+        REPT[reporting]
+        DB[database: SQLAlchemy]
+        STO[storage: files]
+    end
+    UI -->|HTTP JSON| API
+    API --> SCH
+    API --> SVC
+    SVC --> PAR
+    SVC --> VIS
+    SVC --> OCR
+    SVC --> MAT
+    SVC --> CHK
+    SVC --> REPT
+    SVC --> DB
+    SVC --> STO
+    MAT --> CHK
+    VIS -.->|loads| MODEL[(best.pt + manifest)]
+    DB --> SQLITE[(SQLite)]
+    STO --> FILES[(Upload folder)]

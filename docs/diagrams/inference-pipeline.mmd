@@ -1,0 +1,13 @@
+flowchart LR
+    IMG[Image file] --> Q{Quality gate: size, blur, brightness}
+    Q -->|too poor| RV[Mark REVIEW: poor image quality]
+    Q -->|ok| PRE[Preprocess: decode, EXIF rotate, resize]
+    PRE --> YOLO[YOLO predict]
+    YOLO --> NMS[NMS inside Ultralytics]
+    NMS --> MAP[Map class_id to class name via manifest]
+    MAP --> THR{Confidence band}
+    THR -->|at or above accept threshold| ACC[accepted detection]
+    THR -->|between conf and accept threshold| LOW[low-confidence detection, REVIEW]
+    THR -->|below conf threshold| DROP[discarded]
+    ACC --> OUT[DetectedObject records]
+    LOW --> OUT

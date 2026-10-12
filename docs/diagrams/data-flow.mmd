@@ -1,0 +1,16 @@
+flowchart LR
+    A[Uploaded files] --> B[Validation]
+    B --> C1[Document parsing]
+    B --> C2[Image preprocessing]
+    C1 --> D1[Expected items]
+    C2 --> E1[Detection]
+    C2 --> E2[OCR]
+    E1 --> F[Observed items]
+    E2 --> F
+    D1 --> G[Matching]
+    F --> G
+    G --> H[QC rules]
+    H --> I[Check results PASS/FAIL/REVIEW]
+    I --> J[Inspector review]
+    J --> K[(Database + evidence)]
+    K --> L[Report]

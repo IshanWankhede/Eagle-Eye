@@ -1,0 +1,26 @@
+sequenceDiagram
+    actor Insp as Inspector
+    participant UI as Frontend
+    participant API as FastAPI
+    participant Svc as Inspection service
+    participant DB as Database
+    participant ML as Detector and OCR
+    Insp->>UI: Create inspection, choose files
+    UI->>API: POST /api/inspections
+    API->>DB: insert inspection (CREATED)
+    UI->>API: POST /api/inspections/{id}/files
+    API->>DB: save file records
+    UI->>API: POST /api/inspections/{id}/process
+    API->>DB: create processing job (QUEUED)
+    API-->>UI: 202 job_id
+    API->>Svc: run job in background
+    Svc->>ML: parse documents, detect, OCR
+    Svc->>Svc: match and evaluate rules
+    Svc->>DB: save objects, checks, evidence
+    loop polling
+        UI->>API: GET /api/inspections/{id}/status
+        API-->>UI: PROCESSING / AWAITING_REVIEW
+    end
+    UI->>API: GET /api/inspections/{id}/results
+    Insp->>UI: review REVIEW items
+    UI->>API: POST /api/inspections/{id}/checks/{check_id}/review

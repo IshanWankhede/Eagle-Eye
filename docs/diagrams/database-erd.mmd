@@ -1,0 +1,15 @@
+erDiagram
+    INSPECTION ||--o{ UPLOADED_FILE : has
+    INSPECTION ||--o{ EXPECTED_ITEM : has
+    INSPECTION ||--o{ PROCESSING_JOB : has
+    INSPECTION ||--o{ QC_CHECK : has
+    INSPECTION ||--o{ REPORT : has
+    UPLOADED_FILE ||--o{ DETECTED_OBJECT : source_of
+    UPLOADED_FILE ||--o{ OCR_OBSERVATION : source_of
+    UPLOADED_FILE ||--o{ EXPECTED_ITEM : source_of
+    QC_CHECK ||--o{ EVIDENCE : supported_by
+    QC_CHECK ||--o{ INSPECTOR_REVIEW : reviewed_by
+    EXPECTED_ITEM ||--o{ QC_CHECK : evaluated_in
+    DETECTED_OBJECT ||--o{ EVIDENCE : cited_in
+    OCR_OBSERVATION ||--o{ EVIDENCE : cited_in
+    PROCESSING_JOB ||--o{ QC_CHECK : produced
