@@ -45,8 +45,8 @@ flowchart LR
 - [ ] M2 Inspections persisted via API (Phase 2)
 - [ ] M3 UI shell talks to API (Phase 3)
 - [ ] M4 Files uploaded and expected items parsed (Phase 4)
-- [ ] M5 Dataset validated (Phase 5)
-- [ ] M6 Model trained, evaluated, manifest written (Phase 6)
+- [] M5 Dataset validated (Phase 5) - Done
+- [] M6 Model trained, evaluated, manifest written (Phase 6) - Done
 - [ ] M7 Detector + OCR job works (Phase 7)
 - [ ] M8 Rules produce PASS/FAIL/REVIEW (Phase 8)
 - [ ] M9 First complete inspection reviewed in the UI (Phase 9) — **first end-to-end demo**
